@@ -6,4 +6,6 @@ package pe.edu.upc.clinicaupc;
 public class Especialidad {
     //
     //
+
+    //
 }
