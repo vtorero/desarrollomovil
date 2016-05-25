@@ -1,19 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#e0fcf9">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="154dp"
+    <EditText
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Bienvenidos al app de la  clinica UPC"
-        android:id="@+id/textView"
-        android:layout_gravity="center"
-        android:autoText="true"
-        android:fontFamily="@string/abc_action_mode_done"
-        android:layout_marginTop="200dp"
-        android:textAlignment="center"
-        android:textColor="#020420" />
+        android:id="@+id/txtUser"
+        android:hint="Ingrese su usuario"
+        android:layout_marginTop="100dp"
+        android:layout_gravity="center_horizontal"
+        android:textStyle="bold" />
+
+    <EditText
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:hint="Ingrese su contraseña"
+        android:id="@+id/editText"
+        android:layout_gravity="center_horizontal"
+        android:textStyle="bold" />
+<android.support.v7.widget.LinearLayoutCompat
+    android:layout_width="wrap_content"
+    android:layout_height="50dp"
+    android:layout_gravity="center_horizontal">
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ingresar"
+        android:id="@+id/button"
+        android:layout_gravity="center_horizontal" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Registrar"
+        android:id="@+id/button2"
+        android:layout_gravity="right"
+        android:gravity="center_vertical" />
+</android.support.v7.widget.LinearLayoutCompat>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:layout_gravity="center_horizontal"
+        android:src="@mipmap/ic_logo_upc" />
+
 </LinearLayout>

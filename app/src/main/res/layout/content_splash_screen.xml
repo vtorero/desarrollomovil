@@ -17,8 +17,8 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center_horizontal|top">
+        android:layout_height="match_parent">
+
         <TextView
             android:layout_width="154dp"
             android:layout_height="wrap_content"
@@ -26,9 +26,8 @@
             android:text="Bienvenidos al app de la  clinica UPC"
             android:id="@+id/textView"
             android:layout_gravity="center"
-            android:autoText="true"
             android:fontFamily="@string/abc_action_mode_done"
-            android:layout_marginTop="200dp"
+            android:layout_marginTop="50dp"
             android:textAlignment="center"
             android:textColor="#020420" />
         <ImageButton
@@ -37,12 +36,11 @@
             android:id="@+id/imageButton"
             android:layout_gravity="center_horizontal"
             android:background="@mipmap/ic_launcher" />
-
-        <ProgressBar
+            <ProgressBar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/progressBar"
             android:layout_gravity="center_horizontal"
-            android:indeterminate="false" />
+            android:indeterminate="false"/>
     </LinearLayout>
 </LinearLayout>
