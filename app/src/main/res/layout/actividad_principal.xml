@@ -56,4 +56,10 @@
         android:layout_gravity="center_horizontal"
         android:src="@mipmap/ic_logo_upc" />
 
+    <DatePicker
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/datePicker"
+        android:layout_gravity="right" />
+
 </LinearLayout>
