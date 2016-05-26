@@ -3,11 +3,8 @@ package pe.edu.upc.clinicaupc;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.widget.ProgressBar;
 
 public class SplashScreen extends AppCompatActivity {
@@ -35,7 +32,7 @@ public class SplashScreen extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                Intent nuevoFrom = new Intent(SplashScreen.this,principal.class);
+                Intent nuevoFrom = new Intent(SplashScreen.this,Login.class);
                 startActivity(nuevoFrom);
                 finish();
             }

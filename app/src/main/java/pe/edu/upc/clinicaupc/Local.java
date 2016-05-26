@@ -3,12 +3,12 @@ package pe.edu.upc.clinicaupc;
 /**
  * Created by alumnos on 17/05/2016.
  */
-public class Sede {
+public class Local {
     long co_sede;
     String de_sede;
     int in_estado;
 
-    public Sede(long co_sede, String de_sede, int in_estado) {
+    public Local(long co_sede, String de_sede, int in_estado) {
         this.co_sede = co_sede;
         this.de_sede = de_sede;
         this.in_estado = in_estado;

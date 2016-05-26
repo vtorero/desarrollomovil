@@ -3,14 +3,14 @@ package pe.edu.upc.clinicaupc;
 /**
  * Created by alumnos on 17/05/2016.
  */
-public class Medico {
+public class Doctor {
 
     long co_medico;
     String de_nombreCompleto;
     long co_especialidad;
     int in_estado;
 
-    public Medico(long co_medico, String de_nombreCompleto, long co_especialidad, int in_estado) {
+    public Doctor(long co_medico, String de_nombreCompleto, long co_especialidad, int in_estado) {
         this.co_medico = co_medico;
         this.de_nombreCompleto = de_nombreCompleto;
         this.co_especialidad = co_especialidad;

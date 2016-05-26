@@ -20,7 +20,7 @@
 
         </activity>
         <activity
-            android:name=".principal"
+            android:name=".Login"
             android:label="@string/title_activity_splash_screen"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>

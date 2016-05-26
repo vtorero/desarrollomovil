@@ -3,12 +3,12 @@ package pe.edu.upc.clinicaupc;
 /**
  * Created by alumnos on 17/05/2016.
  */
-public class Especialidad {
+public class Specialty {
     long co_especilidad;
     String de_especialidad;
     int in_estado;
 
-    public Especialidad(long co_especilidad, String de_especialidad, int in_estado) {
+    public Specialty(long co_especilidad, String de_especialidad, int in_estado) {
         this.co_especilidad = co_especilidad;
         this.de_especialidad = de_especialidad;
         this.in_estado = in_estado;
