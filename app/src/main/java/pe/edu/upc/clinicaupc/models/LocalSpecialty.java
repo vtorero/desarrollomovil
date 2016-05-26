@@ -1,15 +1,15 @@
-package pe.edu.upc.clinicaupc;
+package pe.edu.upc.clinicaupc.models;
 
 /**
  * Created by alumnos on 17/05/2016.
  */
-public class SedeEspecialidad {
+public class LocalSpecialty {
 
     int in_estado;
     long co_especialidad;
     long co_sede;
 
-    public SedeEspecialidad(int in_estado, long co_especialidad, long co_sede) {
+    public LocalSpecialty(int in_estado, long co_especialidad, long co_sede) {
         this.in_estado = in_estado;
         this.co_especialidad = co_especialidad;
         this.co_sede = co_sede;

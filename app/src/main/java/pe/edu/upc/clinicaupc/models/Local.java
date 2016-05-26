@@ -1,4 +1,4 @@
-package pe.edu.upc.clinicaupc;
+package pe.edu.upc.clinicaupc.models;
 
 /**
  * Created by alumnos on 17/05/2016.

@@ -1,7 +1,9 @@
-package pe.edu.upc.clinicaupc;
+package pe.edu.upc.clinicaupc.models;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+
+import pe.edu.upc.clinicaupc.R;
 
 /**
  * Created by vjimenez on 21/05/2016.

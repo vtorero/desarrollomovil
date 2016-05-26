@@ -1,4 +1,4 @@
-package pe.edu.upc.clinicaupc;
+package pe.edu.upc.clinicaupc.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,7 +7,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.widget.ProgressBar;
 
+import pe.edu.upc.clinicaupc.R;
+import pe.edu.upc.clinicaupc.models.Login;
+
 public class SplashScreen extends AppCompatActivity {
+
     public static final int segundos = 8;
     public static final int milisegundos = segundos * 1000;
     public static final int delay = 2;
