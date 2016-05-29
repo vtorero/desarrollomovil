@@ -8,7 +8,6 @@ import android.support.v7.widget.Toolbar;
 import android.widget.ProgressBar;
 
 import pe.edu.upc.clinicaupc.R;
-import pe.edu.upc.clinicaupc.models.Login;
 
 public class SplashScreen extends AppCompatActivity {
 
@@ -36,7 +35,7 @@ public class SplashScreen extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                Intent nuevoFrom = new Intent(SplashScreen.this,Login.class);
+                Intent nuevoFrom = new Intent(SplashScreen.this,Activity_login.class);
                 startActivity(nuevoFrom);
                 finish();
             }

@@ -40,13 +40,6 @@
         android:id="@+id/button"
         android:layout_gravity="center_horizontal" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Registrar"
-        android:id="@+id/button2"
-        android:layout_gravity="right"
-        android:gravity="center_vertical" />
 </android.support.v7.widget.LinearLayoutCompat>
 
     <ImageView
