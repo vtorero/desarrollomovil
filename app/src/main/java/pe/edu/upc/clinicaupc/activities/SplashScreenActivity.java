@@ -9,7 +9,7 @@ import android.widget.ProgressBar;
 
 import pe.edu.upc.clinicaupc.R;
 
-public class SplashScreen extends AppCompatActivity {
+public class SplashScreenActivity extends AppCompatActivity {
 
     public static final int segundos = 8;
     public static final int milisegundos = segundos * 1000;
@@ -35,7 +35,7 @@ public class SplashScreen extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                Intent nuevoFrom = new Intent(SplashScreen.this,Activity_login.class);
+                Intent nuevoFrom = new Intent(SplashScreenActivity.this,LoginActivity.class);
                 startActivity(nuevoFrom);
                 finish();
             }

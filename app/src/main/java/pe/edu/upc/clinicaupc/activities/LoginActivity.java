@@ -12,7 +12,7 @@ import pe.edu.upc.clinicaupc.R;
 /**
  * Created by vjimenez on 21/05/2016.
  */
-public class Activity_login extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 Button btnLogin;
     EditText txtUser;
     String v ="victor";
@@ -21,14 +21,14 @@ Button btnLogin;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         btnLogin = (Button) findViewById(R.id.button);
-        txtUser = (EditText) findViewById(R.id.txtUser);
+        txtUser = (EditText) findViewById(R.id.nameEditText);
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 if("victor".equals(txtUser.getText().toString()))
                 {
-                    Intent NuevoFrom = new Intent(Activity_login.this,Activity_reservas.class);
+                    Intent NuevoFrom = new Intent(LoginActivity.this,BookingsActivity.class);
                     startActivity(NuevoFrom);
                 }
                 else
