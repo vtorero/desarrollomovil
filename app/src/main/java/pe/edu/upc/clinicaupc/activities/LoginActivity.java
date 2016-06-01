@@ -6,18 +6,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-
 import pe.edu.upc.clinicaupc.R;
+
 
 /**
  * Created by vjimenez on 21/05/2016.
  */
 public class LoginActivity extends AppCompatActivity {
-Button btnLogin;
+
+    Button btnLogin;
     EditText txtUser;
-    String v ="victor";
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         btnLogin = (Button) findViewById(R.id.button);
@@ -33,6 +34,7 @@ Button btnLogin;
                 }
                 else
                 {
+
                     System.out.println("Results"+txtUser.getText().toString());
                 }
 
@@ -40,5 +42,6 @@ Button btnLogin;
         });
 
     }
+
 
 }
