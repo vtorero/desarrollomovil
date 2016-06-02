@@ -5,23 +5,23 @@ package pe.edu.upc.clinicaupc.models;
  */
 public class Doctor {
 
-    long co_medico;
+    String co_medico;
     String de_nombreCompleto;
-    long co_especialidad;
+    String co_especialidad;
     int in_estado;
 
-    public Doctor(long co_medico, String de_nombreCompleto, long co_especialidad, int in_estado) {
+    public Doctor(String co_medico, String de_nombreCompleto, String co_especialidad, int in_estado) {
         this.co_medico = co_medico;
         this.de_nombreCompleto = de_nombreCompleto;
         this.co_especialidad = co_especialidad;
         this.in_estado = in_estado;
     }
 
-    public long getCo_medico() {
+    public String getCo_medico() {
         return co_medico;
     }
 
-    public void setCo_medico(long co_medico) {
+    public void setCo_medico(String co_medico) {
         this.co_medico = co_medico;
     }
 
@@ -33,11 +33,11 @@ public class Doctor {
         this.de_nombreCompleto = de_nombreCompleto;
     }
 
-    public long getCo_especialidad() {
+    public String getCo_especialidad() {
         return co_especialidad;
     }
 
-    public void setCo_especialidad(long co_especialidad) {
+    public void setCo_especialidad(String co_especialidad) {
         this.co_especialidad = co_especialidad;
     }
 
