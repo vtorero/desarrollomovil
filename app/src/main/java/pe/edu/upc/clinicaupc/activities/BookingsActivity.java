@@ -27,7 +27,7 @@ import pe.edu.upc.clinicaupc.models.Doctor;
 public class BookingsActivity extends AppCompatActivity {
 
     private ArrayList<Doctor> doctorList = new ArrayList<>();
-    private static String   DOCTOR_SEARCH_URL = "http://tjvsac.com/api/api.php?name=borda&cache=2";
+    private static String   DOCTOR_SEARCH_URL = "http://tjvsac.com/api/api.php?name=borda";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,7 +50,7 @@ public class BookingsActivity extends AppCompatActivity {
                 try {
 
                     JSONArray resultsArray = response.getJSONArray("data");
-                    int resultsCount = response.length() + 1;
+                    int resultsCount = resultsArray.length();
                     System.out.println("Results: " + resultsCount);
                     int limit = resultsCount > 10 ? 10 : resultsCount;
 
