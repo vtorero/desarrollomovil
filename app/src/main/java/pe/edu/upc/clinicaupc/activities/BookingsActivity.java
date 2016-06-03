@@ -27,24 +27,12 @@ import pe.edu.upc.clinicaupc.models.Doctor;
 public class BookingsActivity extends AppCompatActivity {
 
     private ArrayList<Doctor> doctorList = new ArrayList<>();
-    private static String   DOCTOR_SEARCH_URL = "http://tjvsac.com/api/api.php?name=borda";
+    private static String   DOCTOR_SEARCH_URL = "http://tjvsac.com/api/api.php?name=borda&cache=2";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
          searchDoctors(DOCTOR_SEARCH_URL);
-        List<Doctor> listaju = Arrays.asList(
-                new  Doctor("1","nombre","1",1),
-                   new  Doctor("2","nombre","1",1),
-                new  Doctor("3","nombre","1",1)
-        );
-
-
-
-
-        /*RecyclerAdapterDoctor adapter = new RecyclerAdapterDoctor();
-        adapter.setListaDoctor(doctorList);
-        rv.setAdapter(adapter);*/
 
   }
 
@@ -62,29 +50,24 @@ public class BookingsActivity extends AppCompatActivity {
                 try {
 
                     JSONArray resultsArray = response.getJSONArray("data");
-                    int resultsCount = response.length();
+                    int resultsCount = response.length() + 1;
                     System.out.println("Results: " + resultsCount);
-
                     int limit = resultsCount > 10 ? 10 : resultsCount;
 
-                    ArrayList<Doctor> authors = new ArrayList<>();
-                    for (int position = 0; position<limit ; position++){
+                    for (int position = 0; position<resultsCount ; position++){
                         JSONObject result = resultsArray.getJSONObject(position);
                         String nombre = result.getString("name");
-                        System.out.println("Title = " + nombre);
+                        String especialidad = result.getString("especialidad");
+                        String codigo = result.getString("codigo");
+                        System.out.println("nombre = " + nombre);
 
-                        Doctor doctor = new  Doctor("0",nombre,"1",1);
+                        Doctor doctor = new  Doctor(codigo ,nombre,especialidad,1);
                         doctorList.add(doctor);
 
                     }
                     RecyclerAdapterDoctor adapter = new RecyclerAdapterDoctor();
                     adapter.setListaDoctor(doctorList);
                     rv.setAdapter(adapter);
-                             /*if(Doctor.size() > 0) {
-                        Intent intent = new Intent(MainActivity.this, BookCatalogActivity.class);
-                        startActivity(intent);
-                    }*/
-
 
                 } catch (JSONException e) {
                     e.printStackTrace();

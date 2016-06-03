@@ -32,7 +32,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if (!txtUser.getText().toString().isEmpty()) {
+                if (!txtUser.getText().toString().isEmpty() && !txtPassword.getText().toString().isEmpty()) {
                     if ("victor".equals(txtUser.getText().toString()) && "123".equals(txtPassword.getText().toString())) {
                         Intent NuevoFrom = new Intent(LoginActivity.this, BookingsActivity.class);
                         startActivity(NuevoFrom);

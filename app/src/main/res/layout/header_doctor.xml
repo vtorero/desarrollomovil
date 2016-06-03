@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="65dp"
+    android:background="?attr/colorPrimary">
+    <TextView
+        android:layout_width="120dp"
+        android:layout_height="match_parent"
+        android:text="Doctor"
+        android:gravity="center_vertical"
+        android:id="@+id/name"
+        android:textStyle="bold"
+        android:textAlignment="center" />
+    <TextView
+        android:layout_width="120dp"
+        android:layout_height="match_parent"
+        android:text="Codigo"
+        android:gravity="center_vertical"
+        android:id="@+id/calories"
+        android:textStyle="bold"
+        android:textAlignment="center" />
+    <TextView
+        android:layout_width="120dp"
+        android:layout_height="match_parent"
+        android:text="Espacialidad"
+        android:gravity="center_vertical"
+        android:id="@+id/fat"
+        android:textStyle="bold"
+        android:textAlignment="center" />
+</LinearLayout>
