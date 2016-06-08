@@ -1,6 +1,5 @@
 package pe.edu.upc.clinicaupc.activities;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -17,14 +16,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 import pe.edu.upc.clinicaupc.R;
 import pe.edu.upc.clinicaupc.adapters.RecyclerAdapterDoctor;
 import pe.edu.upc.clinicaupc.models.Doctor;
 
-public class BookingsActivity extends AppCompatActivity {
+public class DoctorActivity extends AppCompatActivity {
 
     private ArrayList<Doctor> doctorList = new ArrayList<>();
     private static String   DOCTOR_SEARCH_URL = "http://tjvsac.com/api/api.php?name=borda";
@@ -37,7 +34,7 @@ public class BookingsActivity extends AppCompatActivity {
   }
 
     public void searchDoctors(String searchTitleUrl) {
-        setContentView(R.layout.activity_bookings);
+        setContentView(R.layout.activity_doctors);
         final RecyclerView rv = (RecyclerView) findViewById(R.id.recycler);
         LinearLayoutManager  llm = new LinearLayoutManager(this);
         rv.setLayoutManager(llm);
@@ -48,8 +45,9 @@ public class BookingsActivity extends AppCompatActivity {
             public void onResponse(JSONObject response) {
                 // the response is already constructed as a JSONObject!
                 try {
-
                     JSONArray resultsArray = response.getJSONArray("data");
+
+
                     int resultsCount = resultsArray.length();
                     System.out.println("Results: " + resultsCount);
                     int limit = resultsCount > 10 ? 10 : resultsCount;
@@ -63,8 +61,8 @@ public class BookingsActivity extends AppCompatActivity {
 
                         Doctor doctor = new  Doctor(codigo ,nombre,especialidad,1);
                         doctorList.add(doctor);
-
                     }
+
                     RecyclerAdapterDoctor adapter = new RecyclerAdapterDoctor();
                     adapter.setListaDoctor(doctorList);
                     rv.setAdapter(adapter);

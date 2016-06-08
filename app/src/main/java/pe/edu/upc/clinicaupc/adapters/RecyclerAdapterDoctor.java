@@ -1,4 +1,6 @@
 package pe.edu.upc.clinicaupc.adapters;
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,6 +9,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 import pe.edu.upc.clinicaupc.R;
+import pe.edu.upc.clinicaupc.activities.DoctorActivity;
 import pe.edu.upc.clinicaupc.models.Doctor;
 
 
@@ -20,6 +23,7 @@ public class RecyclerAdapterDoctor extends RecyclerView.Adapter<RecyclerAdapterD
         this.listadoctor= listadoctor;
     }
     @Override
+
     public DoctorViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_item_doctor,parent,false);
         DoctorViewHolder holder = new DoctorViewHolder(v);
@@ -32,6 +36,13 @@ public class RecyclerAdapterDoctor extends RecyclerView.Adapter<RecyclerAdapterD
         holder.nombredoctor.setText(listadoctor.get(position).getDe_nombreCompleto());
         holder.codigo.setText(listadoctor.get(position).getCo_medico());
         holder.especialidad.setText(listadoctor.get(position).getCo_especialidad());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
     }
 
     @Override
@@ -44,9 +55,9 @@ public class RecyclerAdapterDoctor extends RecyclerView.Adapter<RecyclerAdapterD
         TextView nombredoctor;
         TextView codigo;
         TextView especialidad;
-             public DoctorViewHolder(View itemView) {
+        public DoctorViewHolder(View itemView) {
             super(itemView);
-            nombredoctor = (TextView) itemView.findViewById(R.id.name);
+            nombredoctor = (TextView) itemView.findViewById(R.id.nameTextView);
             codigo = (TextView) itemView.findViewById(R.id.codigo);
             especialidad = (TextView) itemView.findViewById(R.id.especialidad);
 

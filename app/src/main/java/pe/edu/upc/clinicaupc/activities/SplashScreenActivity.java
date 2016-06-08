@@ -11,7 +11,7 @@ import pe.edu.upc.clinicaupc.R;
 
 public class SplashScreenActivity extends AppCompatActivity {
 
-    public static final int segundos = 8;
+    public static final int segundos = 3;
     public static final int milisegundos = segundos * 1000;
     public static final int delay = 2;
     private ProgressBar progreso;

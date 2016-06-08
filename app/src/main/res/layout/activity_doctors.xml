@@ -4,12 +4,11 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent"
-    tools:context=".activities.BookingsActivity">
+    tools:context=".activities.DoctorActivity">
     <include layout="@layout/header_doctor" />
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
                 android:id="@+id/recycler"
         android:layout_height="419dp">
     </android.support.v7.widget.RecyclerView>
-
 </LinearLayout>
