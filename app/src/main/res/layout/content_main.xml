@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"></TableRow>
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/categoriesRecyclerView"
+        android:id="@+id/appointmentRecycler"
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
@@ -34,7 +34,7 @@
         android:layout_margin="16dp"
         android:clickable="true"
         app:fabSize="mini"
-        app:layout_anchor="@id/categoriesRecyclerView"
+        app:layout_anchor="@id/appointmentRecycler"
         app:layout_anchorGravity="bottom|right|end"
         android:layout_gravity="right"
         android:src="@android:drawable/ic_menu_compass" />
@@ -46,7 +46,7 @@
         android:layout_margin="16dp"
         android:clickable="true"
         app:fabSize="mini"
-        app:layout_anchor="@id/categoriesRecyclerView"
+        app:layout_anchor="@id/appointmentRecycler"
         app:layout_anchorGravity="bottom|right|end"
         android:layout_gravity="right"
         android:src="@android:drawable/ic_menu_edit" />

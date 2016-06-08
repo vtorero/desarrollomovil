@@ -26,20 +26,21 @@ import java.util.ArrayList;
 
 public class AppointmentActivity extends AppCompatActivity {
   private ArrayList<Doctor> doctorList = new ArrayList<>();
+  RecyclerView rv;
   private static String   DOCTOR_SEARCH_URL = "http://tjvsac.com/api/api.php?name=borda";
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-
+    setContentView(R.layout.activity_main);
+    rv = (RecyclerView) findViewById(R.id.appointmentRecycler);
+    LinearLayoutManager  llm = new LinearLayoutManager(this);
+    rv.setLayoutManager(llm);
     searchDoctors(DOCTOR_SEARCH_URL);
 
   }
 
   public void searchDoctors(String searchTitleUrl) {
-    setContentView(R.layout.activity_bookings);
-    final RecyclerView rv = (RecyclerView) findViewById(R.id.recycler);
-    LinearLayoutManager  llm = new LinearLayoutManager(this);
-    rv.setLayoutManager(llm);
+
     System.out.println("URL = " + searchTitleUrl);
     JsonObjectRequest jsonRequest = new JsonObjectRequest(
             Request.Method.GET, searchTitleUrl, null, new Response.Listener<JSONObject>() {
