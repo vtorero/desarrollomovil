@@ -35,6 +35,7 @@ public class AppointmentActivity extends AppCompatActivity {
     rv = (RecyclerView) findViewById(R.id.appointmentRecycler);
     LinearLayoutManager  llm = new LinearLayoutManager(this);
     rv.setLayoutManager(llm);
+
     searchDoctors(DOCTOR_SEARCH_URL);
 
   }
