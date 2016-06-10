@@ -22,22 +22,24 @@ import pe.edu.upc.clinicaupc.adapters.RecyclerAdapterDoctor;
 import pe.edu.upc.clinicaupc.models.Doctor;
 
 public class DoctorActivity extends AppCompatActivity {
-
+    RecyclerView rv;
     private ArrayList<Doctor> doctorList = new ArrayList<>();
-    private static String   DOCTOR_SEARCH_URL = "http://tjvsac.com/api/api.php?name=borda";
+    private static String   DOCTOR_SEARCH_URL = "http://tjvsac.com/api/api.php?medicoEspecialidad=";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-         searchDoctors(DOCTOR_SEARCH_URL);
+        setContentView(R.layout.activity_doctors);
+        rv = (RecyclerView) findViewById(R.id.recycler);
+        LinearLayoutManager  llm = new LinearLayoutManager(this);
+        rv.setLayoutManager(llm);
+        Bundle bundle = getIntent().getExtras();
+        String criterio = bundle.getString("coEspecialidad");
+        searchDoctors(DOCTOR_SEARCH_URL+criterio);
 
   }
 
     public void searchDoctors(String searchTitleUrl) {
-        setContentView(R.layout.activity_doctors);
-        final RecyclerView rv = (RecyclerView) findViewById(R.id.recycler);
-        LinearLayoutManager  llm = new LinearLayoutManager(this);
-        rv.setLayoutManager(llm);
+
         System.out.println("URL = " + searchTitleUrl);
         JsonObjectRequest jsonRequest = new JsonObjectRequest(
                 Request.Method.GET, searchTitleUrl, null, new Response.Listener<JSONObject>() {

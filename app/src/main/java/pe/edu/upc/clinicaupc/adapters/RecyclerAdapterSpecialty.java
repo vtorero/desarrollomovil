@@ -45,6 +45,7 @@ public class RecyclerAdapterSpecialty extends RecyclerView.Adapter<RecyclerAdapt
                 Intent itemIntent = new Intent(view.getContext(), DoctorActivity.class);
                 Bundle bundle = new Bundle();
                 bundle.putString("coEspecialidad", listSpecialty.get(position).getCo_especilidad());
+                itemIntent.putExtras(bundle);
                 view.getContext().startActivity(itemIntent);
             }
         });

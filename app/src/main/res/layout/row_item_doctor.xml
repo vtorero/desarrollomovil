@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="110dp">
         <TextView
-        android:layout_width="120dp"
+        android:layout_width="130dp"
         android:layout_height="wrap_content"
         android:text="Steve Jobs"
         android:id="@+id/nameTextView"
@@ -32,7 +32,9 @@
             android:text="Steve Jobs"
             android:id="@+id/especialidad"
             android:layout_alignTop="@+id/codigo"
-            android:layout_alignParentEnd="true" />
+            android:layout_alignParentEnd="true"
+            android:layout_alignBottom="@+id/codigo"
+            android:layout_toEndOf="@+id/codigo" />
 
 
     </RelativeLayout>
