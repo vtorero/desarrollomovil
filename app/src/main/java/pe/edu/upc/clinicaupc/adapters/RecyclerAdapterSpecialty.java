@@ -1,5 +1,7 @@
 package pe.edu.upc.clinicaupc.adapters;
 
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +11,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import pe.edu.upc.clinicaupc.R;
+import pe.edu.upc.clinicaupc.activities.DoctorActivity;
 import pe.edu.upc.clinicaupc.models.Appointment;
 import pe.edu.upc.clinicaupc.models.Specialty;
 
@@ -32,9 +35,19 @@ public class RecyclerAdapterSpecialty extends RecyclerView.Adapter<RecyclerAdapt
 
 
     @Override
-    public void onBindViewHolder(SpecialtyViewHolder holder, int position) {
+    public void onBindViewHolder(SpecialtyViewHolder holder,final int position) {
         holder.co_espcialty.setText(listSpecialty.get(position).getCo_especilidad());
         holder.de_specialty.setText(listSpecialty.get(position).getDe_especialidad());
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                System.out.printf("Selected position: %d%n", position);
+                Intent itemIntent = new Intent(view.getContext(), DoctorActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("coEspecialidad", listSpecialty.get(position).getCo_especilidad());
+                view.getContext().startActivity(itemIntent);
+            }
+        });
     }
 
     @Override

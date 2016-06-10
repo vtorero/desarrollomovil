@@ -20,12 +20,12 @@
             android:layout_centerVertical="true"
             android:layout_alignParentStart="true" />
         <TextView
-            android:layout_width="120dp"
+            android:layout_width="230dp"
             android:layout_height="wrap_content"
             android:text="Especialidad"
             android:id="@+id/de_especialidad"
-            android:layout_centerHorizontal="true"
-            android:layout_alignTop="@+id/coEspecialidad" />
+            android:layout_alignTop="@+id/coEspecialidad"
+            android:layout_toEndOf="@+id/coEspecialidad" />
 
 
 
