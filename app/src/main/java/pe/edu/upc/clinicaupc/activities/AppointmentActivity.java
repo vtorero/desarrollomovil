@@ -1,11 +1,13 @@
 package pe.edu.upc.clinicaupc.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.View;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -18,16 +20,18 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import pe.edu.upc.clinicaupc.R;
-import pe.edu.upc.clinicaupc.adapters.RecyclerAdapterDoctor;
-import pe.edu.upc.clinicaupc.models.Doctor;
+import pe.edu.upc.clinicaupc.adapters.RecyclerAdapterAppointment;
+import pe.edu.upc.clinicaupc.models.Appointment;
 
 
 import java.util.ArrayList;
 
 public class AppointmentActivity extends AppCompatActivity {
-  private ArrayList<Doctor> doctorList = new ArrayList<>();
+
+  private ArrayList<Appointment> appointmentList = new ArrayList<>();
   RecyclerView rv;
-  private static String   DOCTOR_SEARCH_URL = "http://tjvsac.com/api/api.php?name=borda";
+
+  private static String   APPOINTMENT_SEARCH_URL = "http://tjvsac.com/api/api.php?reservas=1";
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -36,7 +40,17 @@ public class AppointmentActivity extends AppCompatActivity {
     LinearLayoutManager  llm = new LinearLayoutManager(this);
     rv.setLayoutManager(llm);
 
-    searchDoctors(DOCTOR_SEARCH_URL);
+    searchDoctors(APPOINTMENT_SEARCH_URL);
+
+    FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.newFab);
+    fab.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        startActivity(new Intent(getApplicationContext(), SpecialtiesActivity.class));
+        Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show();
+      }
+    });
 
   }
 
@@ -57,17 +71,21 @@ public class AppointmentActivity extends AppCompatActivity {
 
           for (int position = 0; position<resultsCount ; position++){
             JSONObject result = resultsArray.getJSONObject(position);
-            String nombre = result.getString("name");
-            String especialidad = result.getString("especialidad");
-            String codigo = result.getString("codigo");
-            System.out.println("nombre = " + nombre);
+            String co_reserva = result.getString("co_reserva");
+            String de_especialidad = result.getString("de_especialidad");
+            String de_nombreCompleto = result.getString("de_nombreCompleto");
+            String fe_reserva = result.getString("fe_reserva").substring(0,11);
+            String ho_atencion = result.getString("ho_atencion");
+            String de_sede = result.getString("de_sede");
 
-            Doctor doctor = new  Doctor(codigo ,nombre,especialidad,1);
-            doctorList.add(doctor);
+            //System.out.println("co_reserva = " + co_reserva);
+
+            Appointment appointment = new Appointment(co_reserva,de_especialidad,de_nombreCompleto, fe_reserva,ho_atencion,de_sede);
+            appointmentList.add(appointment);
 
           }
-          RecyclerAdapterDoctor adapter = new RecyclerAdapterDoctor();
-          adapter.setListaDoctor(doctorList);
+          RecyclerAdapterAppointment adapter = new RecyclerAdapterAppointment();
+          adapter.setListAppointment(appointmentList);
           rv.setAdapter(adapter);
 
         } catch (JSONException e) {

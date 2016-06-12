@@ -25,6 +25,7 @@
             android:label="@string/title_activity_splash_screen"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".activities.DoctorActivity" />
+        <activity android:name=".activities.AppointmentActivity" />
         <activity
             android:name=".activities.SpecialtiesActivity"
             android:label="@string/title_activity_specialties"
