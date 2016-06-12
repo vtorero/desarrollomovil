@@ -1,7 +1,8 @@
 <resources>
-    <string name="app_name">ClinicaUPC</string>
+    <string name="app_name">Clinica UPC</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_splash_screen">Clinica  UPC</string>
+    <string name="title_activity_splash_screen">Clinica UPC</string>
     <string name="title_login_activity">Citas Clínicas</string>
-    <string name="title_activity_specialties">SpecialtiesActivity</string>
+    <string name="title_activity_specialties">Especialidades Médicas</string>
+    <string name="title_activity_main3">Main3Activity</string>
 </resources>
