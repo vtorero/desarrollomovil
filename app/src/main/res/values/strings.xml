@@ -4,4 +4,5 @@
     <string name="title_activity_splash_screen">Clinica  UPC</string>
     <string name="title_login_activity">Citas Clínicas</string>
     <string name="title_activity_specialties">SpecialtiesActivity</string>
+    <string name="title_activity_dates">Fechas programadas</string>
 </resources>

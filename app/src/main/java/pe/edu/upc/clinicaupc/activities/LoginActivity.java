@@ -35,7 +35,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 if (!txtUser.getText().toString().isEmpty() && !txtPassword.getText().toString().isEmpty()) {
                     if ("victor".equals(txtUser.getText().toString()) && "123".equals(txtPassword.getText().toString())) {
-                        Intent NuevoFrom = new Intent(LoginActivity.this, AppointmentActivity.class);
+                        Intent NuevoFrom = new Intent(LoginActivity.this, DateActivity.class);
                         startActivity(NuevoFrom);
                     } else {
                         Toast.makeText(getApplicationContext(), "Usuario y/o contraseña incorrectos", Toast.LENGTH_LONG).show();
