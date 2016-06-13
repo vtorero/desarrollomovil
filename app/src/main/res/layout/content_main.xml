@@ -25,10 +25,10 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="275dp"
-        android:layout_weight="0.33" />
+        android:layout_weight="0.10" />
 
     <android.support.design.widget.FloatingActionButton
-        android:layout_width="wrap_content"
+        android:layout_width="62dp"
         android:layout_height="wrap_content"
         android:id="@+id/favoriteFab"
         android:layout_margin="16dp"
@@ -37,10 +37,11 @@
         app:layout_anchor="@id/appointmentRecycler"
         app:layout_anchorGravity="bottom|right|end"
         android:layout_gravity="right"
-        android:src="@android:drawable/ic_menu_compass" />
+        android:src="@android:drawable/btn_star"
+        android:layout_weight="0.19" />
 
     <android.support.design.widget.FloatingActionButton
-        android:layout_width="wrap_content"
+        android:layout_width="62dp"
         android:layout_height="wrap_content"
         android:id="@+id/newFab"
         android:layout_margin="16dp"
@@ -49,6 +50,7 @@
         app:layout_anchor="@id/appointmentRecycler"
         app:layout_anchorGravity="bottom|right|end"
         android:layout_gravity="right"
-        android:src="@android:drawable/ic_menu_edit" />
+        android:src="@android:drawable/ic_menu_edit"
+        android:layout_weight="0.14" />
 
 </LinearLayout>

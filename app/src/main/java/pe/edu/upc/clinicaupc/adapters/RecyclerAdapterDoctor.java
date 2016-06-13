@@ -1,4 +1,6 @@
 package pe.edu.upc.clinicaupc.adapters;
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +10,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import pe.edu.upc.clinicaupc.R;
+import pe.edu.upc.clinicaupc.activities.DateActivity;
 import pe.edu.upc.clinicaupc.models.Doctor;
 
 
@@ -30,7 +33,7 @@ public class RecyclerAdapterDoctor extends RecyclerView.Adapter<RecyclerAdapterD
 
 
     @Override
-    public void onBindViewHolder(DoctorViewHolder holder, int position) {
+    public void onBindViewHolder(DoctorViewHolder holder, final int position) {
         holder.nombredoctor.setText(listadoctor.get(position).getDe_nombreCompleto());
         holder.codigo.setText(listadoctor.get(position).getCo_medico());
         holder.especialidad.setText(listadoctor.get(position).getCo_especialidad());
@@ -38,6 +41,13 @@ public class RecyclerAdapterDoctor extends RecyclerView.Adapter<RecyclerAdapterD
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                System.out.printf("Selected position: %d%n", position);
+                Intent itemIntent = new Intent(view.getContext(), DateActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("coDoctor", listadoctor.get(position).getCo_medico());
+                itemIntent.putExtras(bundle);
+                view.getContext().startActivity(itemIntent);
 
             }
         });
