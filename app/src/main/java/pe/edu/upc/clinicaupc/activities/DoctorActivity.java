@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -23,6 +24,8 @@ import pe.edu.upc.clinicaupc.models.Doctor;
 
 public class DoctorActivity extends AppCompatActivity {
     RecyclerView rv;
+    TextView tittle;
+    private String titleSpecia;
     private ArrayList<Doctor> doctorList = new ArrayList<>();
     private static String   DOCTOR_SEARCH_URL = "http://tjvsac.com/api/api.php?medicoEspecialidad=";
     @Override
@@ -30,6 +33,7 @@ public class DoctorActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctors);
         rv = (RecyclerView) findViewById(R.id.recycler);
+        tittle =(TextView) findViewById(R.id.SpecialtyTittle);
         LinearLayoutManager  llm = new LinearLayoutManager(this);
         rv.setLayoutManager(llm);
         Bundle bundle = getIntent().getExtras();
@@ -63,11 +67,15 @@ public class DoctorActivity extends AppCompatActivity {
 
                         Doctor doctor = new  Doctor(codigo ,nombre,especialidad,1);
                         doctorList.add(doctor);
+                        titleSpecia=especialidad;
+
                     }
 
                     RecyclerAdapterDoctor adapter = new RecyclerAdapterDoctor();
+                    tittle.setText(titleSpecia);
                     adapter.setListaDoctor(doctorList);
                     rv.setAdapter(adapter);
+
 
                 } catch (JSONException e) {
                     e.printStackTrace();

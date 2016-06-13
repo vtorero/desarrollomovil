@@ -1,13 +1,10 @@
 package pe.edu.upc.clinicaupc.activities;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -22,9 +19,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 import pe.edu.upc.clinicaupc.R;
-import pe.edu.upc.clinicaupc.adapters.RecyclerAdapterDoctor;
 import pe.edu.upc.clinicaupc.adapters.RecyclerAdapterSpecialty;
-import pe.edu.upc.clinicaupc.models.Doctor;
 import pe.edu.upc.clinicaupc.models.Specialty;
 
 public class SpecialtiesActivity extends AppCompatActivity {
@@ -35,11 +30,11 @@ public class SpecialtiesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_specialties);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
         rv = (RecyclerView) findViewById(R.id.SpeciaRecyclerView);
         LinearLayoutManager llm = new LinearLayoutManager(this);
         rv.setLayoutManager(llm);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
         searchSpecialties(SPECIALTY_SEARCH_URL);
 
     }
