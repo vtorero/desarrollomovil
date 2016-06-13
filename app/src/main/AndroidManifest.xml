@@ -31,7 +31,8 @@
         <activity
             android:name=".activities.SpecialtiesActivity"
             android:label="@string/title_activity_specialties"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".activities.LocalActivity"></activity>
     </application>
 
 </manifest>

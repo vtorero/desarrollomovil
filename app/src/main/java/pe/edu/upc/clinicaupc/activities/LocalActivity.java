@@ -24,26 +24,29 @@ import java.util.ArrayList;
 import pe.edu.upc.clinicaupc.R;
 import pe.edu.upc.clinicaupc.adapters.RecyclerAdapterAppointment;
 import pe.edu.upc.clinicaupc.adapters.RecyclerAdapterDate;
+import pe.edu.upc.clinicaupc.adapters.RecyclerAdapterLocal;
 import pe.edu.upc.clinicaupc.models.Appointment;
 import pe.edu.upc.clinicaupc.models.Schedule;
+import pe.edu.upc.clinicaupc.models.Local;
+
 
 /**
  * Created by weval_000 on 12/06/2016.
  */
-public class DateActivity extends AppCompatActivity {
+public class LocalActivity extends AppCompatActivity {
 
-    private ArrayList<Schedule> dateScheduleList = new ArrayList<>();
+    private ArrayList<Local> localList = new ArrayList<>();
     RecyclerView rv;
-    private static String   DATE_SEARCH_URL = "http://190.223.63.4:6002/wcfsrvcitasmedicas/SedeSrv.svc/Sedes";
+    private static String   LOCAL_SEARCH_URL = "http://190.223.63.4:6002/wcfsrvcitasmedicas/SedeSrv.svc/Sedes";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dates);
-        rv = (RecyclerView) findViewById(R.id.dateRecyclerView);
+        setContentView(R.layout.activity_local);
+        rv = (RecyclerView) findViewById(R.id.localRecyclerView);
         LinearLayoutManager llm = new LinearLayoutManager(this);
         rv.setLayoutManager(llm);
-        searchDoctors(DATE_SEARCH_URL);
+        searchDoctors(LOCAL_SEARCH_URL);
     }
 
     public void searchDoctors(String searchTitleUrl) {
@@ -64,14 +67,14 @@ public class DateActivity extends AppCompatActivity {
                     for (int position = 0; position<resultsCount ; position++){
                         JSONObject result = resultsArray.getJSONObject(position);
 
-                        String fe_atencion = result.getString("de_sede");
+                        String de_sede = result.getString("de_sede");
+                        String co_sede = result.getString("co_sede");
 
-                        Schedule schedule = new Schedule(0,0,0,fe_atencion,"",1 );
-                        dateScheduleList.add(schedule);
-
+                        Local local = new Local(co_sede,de_sede,1 );
+                        localList.add(local);
                     }
-                    RecyclerAdapterDate adapter = new RecyclerAdapterDate();
-                    adapter.setListDatesSchedule(dateScheduleList);
+                    RecyclerAdapterLocal adapter = new RecyclerAdapterLocal();
+                    adapter.setListLocal(localList);
                     rv.setAdapter(adapter);
 
                 } catch (JSONException e) {
@@ -87,7 +90,5 @@ public class DateActivity extends AppCompatActivity {
         }
         );
         Volley.newRequestQueue(this).add(jsonRequest);
-
     }
-
 }

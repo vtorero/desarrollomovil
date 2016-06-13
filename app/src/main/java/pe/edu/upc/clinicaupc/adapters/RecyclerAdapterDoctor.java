@@ -11,6 +11,7 @@ import java.util.List;
 
 import pe.edu.upc.clinicaupc.R;
 import pe.edu.upc.clinicaupc.activities.DateActivity;
+import pe.edu.upc.clinicaupc.activities.LocalActivity;
 import pe.edu.upc.clinicaupc.models.Doctor;
 
 
@@ -43,7 +44,7 @@ public class RecyclerAdapterDoctor extends RecyclerView.Adapter<RecyclerAdapterD
             public void onClick(View view) {
 
                 System.out.printf("Selected position: %d%n", position);
-                Intent itemIntent = new Intent(view.getContext(), DateActivity.class);
+                Intent itemIntent = new Intent(view.getContext(), LocalActivity.class);
                 Bundle bundle = new Bundle();
                 bundle.putString("coDoctor", listadoctor.get(position).getCo_medico());
                 itemIntent.putExtras(bundle);

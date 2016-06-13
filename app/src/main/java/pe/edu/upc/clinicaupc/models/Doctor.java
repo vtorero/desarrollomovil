@@ -8,12 +8,14 @@ public class Doctor {
     String co_medico;
     String de_nombreCompleto;
     String co_especialidad;
+    String de_especialidad;
     int in_estado;
 
-    public Doctor(String co_medico, String de_nombreCompleto, String co_especialidad, int in_estado) {
+    public Doctor(String co_medico, String de_nombreCompleto, String co_especialidad,String de_especialidad, int in_estado) {
         this.co_medico = co_medico;
         this.de_nombreCompleto = de_nombreCompleto;
         this.co_especialidad = co_especialidad;
+        this.de_especialidad = de_especialidad;
         this.in_estado = in_estado;
     }
 
@@ -40,6 +42,15 @@ public class Doctor {
     public void setCo_especialidad(String co_especialidad) {
         this.co_especialidad = co_especialidad;
     }
+
+    public String getDo_especialidad() {
+        return de_especialidad;
+    }
+
+    public void setDe_especialidad(String de_especialidad) {
+        this.de_especialidad = de_especialidad;
+    }
+
 
     public int getIn_estado() {
         return in_estado;

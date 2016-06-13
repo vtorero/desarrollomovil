@@ -4,21 +4,21 @@ package pe.edu.upc.clinicaupc.models;
  * Created by alumnos on 17/05/2016.
  */
 public class Local {
-    long co_sede;
+    String co_sede;
     String de_sede;
     int in_estado;
 
-    public Local(long co_sede, String de_sede, int in_estado) {
+    public Local(String co_sede, String de_sede, int in_estado) {
         this.co_sede = co_sede;
         this.de_sede = de_sede;
         this.in_estado = in_estado;
     }
 
-    public long getCo_sede() {
+    public String getCo_sede() {
         return co_sede;
     }
 
-    public void setCo_sede(long co_sede) {
+    public void setCo_sede(String co_sede) {
         this.co_sede = co_sede;
     }
 

@@ -27,7 +27,8 @@ public class DoctorActivity extends AppCompatActivity {
     TextView tittle;
     private String titleSpecia;
     private ArrayList<Doctor> doctorList = new ArrayList<>();
-    private static String   DOCTOR_SEARCH_URL = "http://tjvsac.com/api/api.php?medicoEspecialidad=";
+    //private static String   DOCTOR_SEARCH_URL = "http://tjvsac.com/api/api.php?medicoEspecialidad=";
+    private static String   DOCTOR_SEARCH_URL = "http://190.223.63.4:6002/wcfsrvcitasmedicas/MedicoSrv.svc/Medicos/";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,7 +52,7 @@ public class DoctorActivity extends AppCompatActivity {
             public void onResponse(JSONObject response) {
                 // the response is already constructed as a JSONObject!
                 try {
-                    JSONArray resultsArray = response.getJSONArray("data");
+                    JSONArray resultsArray = response.getJSONArray("ObtenerMedicosResult");
 
 
                     int resultsCount = resultsArray.length();
@@ -60,15 +61,15 @@ public class DoctorActivity extends AppCompatActivity {
 
                     for (int position = 0; position<resultsCount ; position++){
                         JSONObject result = resultsArray.getJSONObject(position);
-                        String nombre = result.getString("name");
-                        String especialidad = result.getString("especialidad");
-                        String codigo = result.getString("codigo");
+                        String nombre = result.getString("de_nombreCompleto");
+                        String especialidad = result.getString("co_especialidad");
+                        String nombreespecialidad = result.getString("de_especialidad");
+                        String codigo = result.getString("co_medico");
                         System.out.println("nombre = " + nombre);
 
-                        Doctor doctor = new  Doctor(codigo ,nombre,especialidad,1);
+                        Doctor doctor = new  Doctor(codigo ,nombre,especialidad,nombreespecialidad,1);
                         doctorList.add(doctor);
-                        titleSpecia=especialidad;
-
+                        titleSpecia=nombreespecialidad;
                     }
 
                     RecyclerAdapterDoctor adapter = new RecyclerAdapterDoctor();
