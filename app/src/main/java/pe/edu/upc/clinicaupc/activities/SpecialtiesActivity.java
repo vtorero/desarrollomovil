@@ -25,7 +25,8 @@ import pe.edu.upc.clinicaupc.models.Specialty;
 public class SpecialtiesActivity extends AppCompatActivity {
     private ArrayList<Specialty> specialties  = new ArrayList<>();
     RecyclerView rv;
-    private static String   SPECIALTY_SEARCH_URL = "http://tjvsac.com/api/api.php?especialidades=true";
+    //private static String   SPECIALTY_SEARCH_URL = "http://tjvsac.com/api/api.php?especialidades=true";
+    private static String   SPECIALTY_SEARCH_URL = "http://190.223.63.4:6002/wcfsrvcitasmedicas/EspecialidadSrv.svc/Especialidades";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,7 +37,6 @@ public class SpecialtiesActivity extends AppCompatActivity {
         LinearLayoutManager llm = new LinearLayoutManager(this);
         rv.setLayoutManager(llm);
         searchSpecialties(SPECIALTY_SEARCH_URL);
-
     }
 
     public void searchSpecialties(String searchTitleUrl) {
@@ -48,21 +48,17 @@ public class SpecialtiesActivity extends AppCompatActivity {
             public void onResponse(JSONObject response) {
                 // the response is already constructed as a JSONObject!
                 try {
-
-                    JSONArray resultsArray = response.getJSONArray("data");
+                    JSONArray resultsArray = response.getJSONArray("ObtenerEspecialidadesResult");
                     int resultsCount = resultsArray.length();
                     System.out.println("Results: " + resultsCount);
                     int limit = resultsCount > 10 ? 10 : resultsCount;
-
                     for (int position = 0; position<resultsCount ; position++){
                         JSONObject result = resultsArray.getJSONObject(position);
                         String code = result.getString("co_especialidad");
                         String especialty = result.getString("de_especialidad");
                         System.out.println("nombre = " + especialty);
-
                         Specialty specialty= new Specialty(code ,especialty,"1");
                         specialties.add(specialty);
-
                     }
                     RecyclerAdapterSpecialty adapter = new RecyclerAdapterSpecialty();
                     adapter.setListSpecialty(specialties);
@@ -80,7 +76,5 @@ public class SpecialtiesActivity extends AppCompatActivity {
         }
         );
         Volley.newRequestQueue(this).add(jsonRequest);
-
     }
-
 }

@@ -31,7 +31,8 @@ public class AppointmentActivity extends AppCompatActivity {
   private ArrayList<Appointment> appointmentList = new ArrayList<>();
   RecyclerView rv;
 
-  private static String   APPOINTMENT_SEARCH_URL = "http://tjvsac.com/api/api.php?reservas=1";
+  /*private static String   APPOINTMENT_SEARCH_URL = "http://tjvsac.com/api/api.php?reservas=1";*/
+  private static String   APPOINTMENT_SEARCH_URL = "http://190.223.63.4:6002/wcfsrvcitasmedicas/ReservaSrv.svc/Reservas";
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -64,7 +65,7 @@ public class AppointmentActivity extends AppCompatActivity {
         // the response is already constructed as a JSONObject!
         try {
 
-          JSONArray resultsArray = response.getJSONArray("data");
+          JSONArray resultsArray = response.getJSONArray("ObtenerReservasResult");
           int resultsCount = resultsArray.length();
           System.out.println("Results: " + resultsCount);
           int limit = resultsCount > 10 ? 10 : resultsCount;
@@ -73,16 +74,13 @@ public class AppointmentActivity extends AppCompatActivity {
             JSONObject result = resultsArray.getJSONObject(position);
             String co_reserva = result.getString("co_reserva");
             String de_especialidad = result.getString("de_especialidad");
-            String de_nombreCompleto = result.getString("de_nombreCompleto");
-            String fe_reserva = result.getString("fe_reserva").substring(0,11);
-            String ho_atencion = result.getString("ho_atencion");
+            String de_nombreCompleto = result.getString("de_paciente");
+            String fe_reserva = result.getString("fe_reserva");
+            String ho_atencion = result.getString("ho_reserva");
             String de_sede = result.getString("de_sede");
-
-            //System.out.println("co_reserva = " + co_reserva);
-
+            System.out.println("co_reserva = " + co_reserva);
             Appointment appointment = new Appointment(co_reserva,de_especialidad,de_nombreCompleto, fe_reserva,ho_atencion,de_sede);
             appointmentList.add(appointment);
-
           }
           RecyclerAdapterAppointment adapter = new RecyclerAdapterAppointment();
           adapter.setListAppointment(appointmentList);
