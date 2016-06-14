@@ -30,8 +30,7 @@
         <activity android:name=".activities.HourActivity" />
         <activity
             android:name=".activities.SpecialtiesActivity"
-            android:label="@string/title_activity_specialties"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:label="@string/title_activity_specialties"/>
         <activity android:name=".activities.LocalActivity"></activity>
     </application>
 

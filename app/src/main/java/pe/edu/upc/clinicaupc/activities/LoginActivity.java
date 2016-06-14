@@ -21,6 +21,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 import pe.edu.upc.clinicaupc.R;
+import pe.edu.upc.clinicaupc.models.Appointment;
 import pe.edu.upc.clinicaupc.models.Patient;
 
 
@@ -50,12 +51,12 @@ public class LoginActivity extends AppCompatActivity {
 
                 if (!txtUser.getText().toString().isEmpty() && !txtPassword.getText().toString().isEmpty()) {
 
-                    searchPatient(PATIENT_SEARCH_URL+"dni="+txtUser.getText().toString()+"&pass="+txtPassword.getText().toString());
+                       searchPatient(PATIENT_SEARCH_URL+"dni="+txtUser.getText().toString()+"&pass="+txtPassword.getText().toString());
 
 
 
                 }else{
-                    Toast.makeText(getApplicationContext(), "ingrese ususario y contraseña", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Ingrese ususario y contraseña", Toast.LENGTH_LONG).show();
                 }
             }
 
@@ -90,23 +91,20 @@ public class LoginActivity extends AppCompatActivity {
                         Patient patient = new  Patient(codigo ,nombre,dni,clave,estado);
                         patientList.add(patient);
                         userName=nombre;
-                        System.out.println("ddd"+userName);
-                        if(!userName.toString().equals("")) {
-                            Intent NuevoFrom = new Intent(LoginActivity.this, AppointmentActivity.class);
-                            Bundle bundle = new Bundle();
-                            bundle.putString("nombrePaciente", patientList.get(0).getDe_nombreCompleto());
-                            NuevoFrom.putExtras(bundle);
-                            startActivity(NuevoFrom);
-                        }else{
-                            userName="";
-                            Toast.makeText(getApplicationContext(), "Usuario y/o contraseña incorrectos", Toast.LENGTH_LONG).show();
+
+                        System.out.println("ddd"+ userName);
+                        Intent itemIntent = new Intent(LoginActivity.this, AppointmentActivity.class);
+                        Bundle bundle = new Bundle();
+                        bundle.putString("nombrePaciente",userName);
+                        itemIntent.putExtras(bundle);
+                        startActivity(itemIntent);
 
 
-                        }
                     }
 
                 } catch (JSONException e) {
                     e.printStackTrace();
+                    Toast.makeText(getApplicationContext(), "Usuario y/o contreseña incorrecta", Toast.LENGTH_LONG).show();
                 }
             }
         }, new Response.ErrorListener() {
@@ -114,6 +112,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
                 error.printStackTrace();
+                Toast.makeText(getApplicationContext(), "Usuario incorrecto", Toast.LENGTH_LONG).show();
             }
         }
         );
