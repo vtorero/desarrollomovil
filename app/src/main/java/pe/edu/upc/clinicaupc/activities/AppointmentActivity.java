@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -19,17 +20,17 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+
 import pe.edu.upc.clinicaupc.R;
 import pe.edu.upc.clinicaupc.adapters.RecyclerAdapterAppointment;
 import pe.edu.upc.clinicaupc.models.Appointment;
-
-
-import java.util.ArrayList;
 
 public class AppointmentActivity extends AppCompatActivity {
 
   private ArrayList<Appointment> appointmentList = new ArrayList<>();
   RecyclerView rv;
+  TextView  txtwelcome;
 
   /*private static String   APPOINTMENT_SEARCH_URL = "http://tjvsac.com/api/api.php?reservas=1";*/
   private static String   APPOINTMENT_SEARCH_URL = "http://190.223.63.4:6002/wcfsrvcitasmedicas/ReservaSrv.svc/Reservas";
@@ -39,6 +40,10 @@ public class AppointmentActivity extends AppCompatActivity {
     setContentView(R.layout.activity_main);
     rv = (RecyclerView) findViewById(R.id.appointmentRecycler);
     LinearLayoutManager  llm = new LinearLayoutManager(this);
+    Bundle bundle = getIntent().getExtras();
+    String username = bundle.getString("nombrePaciente");
+    txtwelcome = (TextView)findViewById(R.id.txtWelcome);
+    txtwelcome.setText("Bienvenido: " + username);
     rv.setLayoutManager(llm);
 
     searchDoctors(APPOINTMENT_SEARCH_URL);
